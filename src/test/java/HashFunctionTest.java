@@ -41,7 +41,7 @@ public class HashFunctionTest {
     public void testShopNameReturnsCorrectValue() {
         HashFunc hashFunc = new HashFunc("move");
 
-        int shop_name_value = hashFunc.convShopNameToInt();
+        long shop_name_value = hashFunc.convShopNameToLong();
 
         assertNotEquals("shop name:", shop_name_value, 0);
     }
@@ -49,9 +49,9 @@ public class HashFunctionTest {
     @Test
     public void testCharToIntReturnValueNotEqualsTo0() {
         HashFunc hashFunc = new HashFunc("abcdefghijklmnopqrstuvwxyz");
-        int char_to_int = hashFunc.shopNameToInt();
+        long char_to_long = hashFunc.shopNameToLong();
 
-        assertNotEquals(char_to_int, 0);
+        assertNotEquals(char_to_long, 0);
     }
 
     /*

@@ -1,13 +1,18 @@
+/*
+* description: create numerical representation from shop name or execution mode
+*
+* version: 0.1
+* */
+
 public class HashFunc {
     private String text;
     private boolean isExecution = false;
-    private long conv;
 
     public HashFunc(String text) {
         if (text.isEmpty()) throw new IllegalArgumentException("text parameter cannot be empty");
 
         for (int i = 0; i < text.length(); i++) {
-            if (Character.isDigit(text.charAt(i))) throw new IllegalArgumentException("text parameter cannot be empty");
+            if (Character.isDigit(text.charAt(i))) throw new IllegalArgumentException("text parameter cannot have digit");
         }
         this.text = text;
     }
@@ -30,8 +35,8 @@ public class HashFunc {
     * description: convert shop name to int
     * return: a value between 1 and 27
     * */
-    public int convShopNameToInt() {
-        return shopNameToInt();
+    public long convShopNameToLong() {
+        return shopNameToLong();
     }
 
     /*
@@ -59,21 +64,25 @@ public class HashFunc {
         }
     }
 
-    public int shopNameToInt() {
-        int final_value = 0;
+    public long shopNameToLong() {
+        StringBuilder appended_value = new StringBuilder();
         char char_value;
+        long final_value;
 
         for (int i = 0; i < text.length(); i++) {
             char_value = text.charAt(i);
 
             if (char_value >= 65 && char_value <= 90) {
-                final_value += (char_value-65+1)*(i+1);
+                appended_value.append((char_value - 65 + 1));
+                appended_value.replace(0, appended_value.length(), String.valueOf(Long.parseLong(appended_value.toString()) % 10000000000L));
             } else if (char_value >= 97 && char_value <= 122) {
-                final_value += (char_value-97+1)*(i+1);
+                appended_value.append((char_value - 97 + 1));
+                appended_value.replace(0, appended_value.length(), String.valueOf(Long.parseLong(appended_value.toString()) % 10000000000L));
+
             }
         }
 
-        final_value =  final_value % 10000;
+        final_value = Long.parseLong(appended_value.toString());
 
         return final_value;
     }
