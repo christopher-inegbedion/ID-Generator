@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="HashFunctionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-04-28T19:11:21" hostname="ChristopherAir.lan" time="0.043">
+  <properties/>
+  <testcase name="testHasFuncTaskParamCannotBeEmpty" classname="HashFunctionTest" time="0.004"/>
+  <testcase name="testCorrectExecutionPassedAsArgumentCode" classname="HashFunctionTest" time="0.0"/>
+  <testcase name="testShopNameReturnsCorrectValue" classname="HashFunctionTest" time="0.03"/>
+  <testcase name="testIsExecutionArgCannotBeFalse" classname="HashFunctionTest" time="0.001"/>
+  <testcase name="testHashFuncHasToBeString" classname="HashFunctionTest" time="0.0"/>
+  <testcase name="testNonExecutionCodeCannotBeConvertedToExecutionCode" classname="HashFunctionTest" time="0.0"/>
+  <testcase name="testHashFuncShopNameParamCannotBeEmpty" classname="HashFunctionTest" time="0.0"/>
+  <testcase name="testTaskExecutionReturnsCorrectValue" classname="HashFunctionTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
