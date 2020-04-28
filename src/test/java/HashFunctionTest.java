@@ -51,7 +51,7 @@ public class HashFunctionTest {
         HashFunc hashFunc = new HashFunc("m");
         long char_to_long = hashFunc.convExexutionToInt();
 
-        assertNotEquals(char_to_long, 0);
+        assertEquals(char_to_long, 0);
     }
 
     /*
