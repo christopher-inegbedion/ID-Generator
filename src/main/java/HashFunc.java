@@ -2,17 +2,21 @@
 * description: create numerical representation from shop name or execution mode
 *
 * version: 0.1
+* author: Christopher Eromosele Inegbedion
 * */
+
+import org.apache.commons.codec.digest.DigestUtils;
 
 public class HashFunc {
     private String text;
     private boolean isExecution = false;
 
     public HashFunc(String text) {
+
         if (text.isEmpty()) throw new IllegalArgumentException("text parameter cannot be empty");
 
         for (int i = 0; i < text.length(); i++) {
-            if (Character.isDigit(text.charAt(i))) throw new IllegalArgumentException("text parameter cannot have digit");
+            if (Character.isDigit(text.charAt(i))) throw new IllegalArgumentException("shop name parameter cannot have a digit");
         }
         this.text = text;
     }
@@ -31,26 +35,6 @@ public class HashFunc {
         this.isExecution = isExecution;
     }
 
-    /*
-    * description: convert shop name to int
-    * return: a value between 1 and 27
-    * */
-    public long convShopNameToLong() {
-        return shopNameToLong();
-    }
-
-    /*
-     * description: convert task action to int
-     * return: the corresponding task execution value
-     * */
-    public int convTaskActionToInt() {
-        if (isExecution) {
-            return getExecutionEnum().getValue();
-        } else {
-            return 0;
-        }
-    }
-
     public ExecutionEnums getExecutionEnum() {
         switch (text) {
             case "delivery":
@@ -64,27 +48,26 @@ public class HashFunc {
         }
     }
 
-    public long shopNameToLong() {
-        StringBuilder appended_value = new StringBuilder();
-        char char_value;
-        long final_value;
-
-        for (int i = 0; i < text.length(); i++) {
-            char_value = text.charAt(i);
-
-            if (char_value >= 65 && char_value <= 90) {
-                appended_value.append((char_value - 65 + 1));
-                appended_value.replace(0, appended_value.length(), String.valueOf(Long.parseLong(appended_value.toString()) % 10000000000L));
-            } else if (char_value >= 97 && char_value <= 122) {
-                appended_value.append((char_value - 97 + 1));
-                appended_value.replace(0, appended_value.length(), String.valueOf(Long.parseLong(appended_value.toString()) % 10000000000L));
-
-            }
+    /*
+     * description: convert execution action to int
+     * return: the corresponding task execution value
+     * */
+    public int convExexutionToInt() {
+        if (isExecution) {
+            return getExecutionEnum().getValue();
+        } else {
+            return 0;
         }
+    }
 
-        final_value = Long.parseLong(appended_value.toString());
+    /*
+    * description: perform SHA1 hash over the shop name and return the first 6 digits
+    * return: hashed shop name
+    * */
+    public String hashShopName() {
+        String hasedName = DigestUtils.sha1Hex(text);
 
-        return final_value;
+        return hasedName.substring(0, ProjectSettings.ID_LENGTH);
     }
 
 }

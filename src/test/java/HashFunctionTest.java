@@ -40,16 +40,15 @@ public class HashFunctionTest {
     @Test
     public void testShopNameReturnsCorrectValue() {
         HashFunc hashFunc = new HashFunc("move");
+        String shop_name_value = hashFunc.hashShopName();
 
-        long shop_name_value = hashFunc.convShopNameToLong();
-
-        assertNotEquals("shop name:", shop_name_value, 0);
+        assertNotEquals(shop_name_value, "");
     }
 
     @Test
-    public void testCharToIntReturnValueNotEqualsTo0() {
-        HashFunc hashFunc = new HashFunc("abcdefghijklmnopqrstuvwxyz");
-        long char_to_long = hashFunc.shopNameToLong();
+    public void testNonExecutionCodeCannotBeConvertedToExecutionCode() {
+        HashFunc hashFunc = new HashFunc("m");
+        long char_to_long = hashFunc.convExexutionToInt();
 
         assertNotEquals(char_to_long, 0);
     }
@@ -61,8 +60,8 @@ public class HashFunctionTest {
     public void testTaskExecutionReturnsCorrectValue() {
         HashFunc hashFunc = new HashFunc("delivery", true);
 
-        int task_execution = hashFunc.convTaskActionToInt();
-        assertNotEquals("task execution", task_execution, 0);
+        int task_execution = hashFunc.convExexutionToInt();
+        assertNotEquals(task_execution, 0);
     }
 
 
