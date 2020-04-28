@@ -1,3 +1,5 @@
+package id_generator;
+
 public class ProjectSettings {
 
     public static final int ID_LENGTH = 10;

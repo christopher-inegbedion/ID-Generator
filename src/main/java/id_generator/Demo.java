@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package id_generator;
 
 public class Demo {
 

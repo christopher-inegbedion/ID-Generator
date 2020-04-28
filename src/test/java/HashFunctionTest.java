@@ -1,3 +1,4 @@
+import id_generator.HashFunc;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -6,7 +7,7 @@ public class HashFunctionTest {
 
 
     /*
-    * HashFunc param tests
+    * id_generator.HashFunc param tests
     * */
     @Test(expected = IllegalArgumentException.class)
     public void testHashFuncShopNameParamCannotBeEmpty() {

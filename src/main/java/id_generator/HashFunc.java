@@ -1,4 +1,4 @@
-/*
+package id_generator;/*
 * description: create numerical representation from shop name or execution mode
 *
 * version: 0.1

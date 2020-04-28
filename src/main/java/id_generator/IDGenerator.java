@@ -1,4 +1,4 @@
-/*
+package id_generator;/*
 * class description: generates a task ID for a provider given their shop name and execution mode.
 *
 * how does it work: generate a hash value for the shop using SHA-1 hex hash and select first 10 digits
@@ -7,11 +7,6 @@
 * version: 0.1
 * author: Christopher Eromosele Inegbedion
  * */
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 
 public class IDGenerator {
     private String shop_name;

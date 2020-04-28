@@ -1,3 +1,5 @@
+import id_generator.IDGenerator;
+import id_generator.ProjectSettings;
 import org.junit.Test;
 
 import java.util.ArrayList;
