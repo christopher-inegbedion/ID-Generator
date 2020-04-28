@@ -6,12 +6,12 @@ public class ProjectSettings {
 
     private ProjectSettings() {}
 
-    class Test {
+    public class Test {
 
-        static final int number_of_tests = 5;
-        static final int text_length = 6;
+        public static final int number_of_tests = 5;
+        public static final int text_length = 6;
 
-        static final int number_of_runs = 100000;
+        public static final int number_of_runs = 100000;
 
         private Test() {}
     }
