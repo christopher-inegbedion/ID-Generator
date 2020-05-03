@@ -64,10 +64,10 @@ public class HashFunc {
     * description: perform SHA1 hash over the shop name and return the first 6 digits
     * return: hashed shop name
     * */
-    public String hashShopName() {
-        String hasedName = DigestUtils.sha1Hex(text);
+    public String hashTaskAction() {
+        String hashedName = DigestUtils.sha1Hex(text);
 
-        return hasedName.substring(0, ProjectSettings.ID_LENGTH);
+        return hashedName.substring(0, ProjectSettings.ID_LENGTH);
     }
 
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="IDGeneratorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-04-28T19:11:21" hostname="ChristopherAir.lan" time="0.115">
+<testsuite name="IDGeneratorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-05-03T03:28:47" hostname="ChristopherAir.lan" time="0.235">
   <properties/>
-  <testcase name="testShopNameCannotEmpty" classname="IDGeneratorTest" time="0.002"/>
-  <testcase name="testRandomness" classname="IDGeneratorTest" time="0.112"/>
-  <testcase name="testExecutionCannotEmpty" classname="IDGeneratorTest" time="0.0"/>
+  <testcase name="testShopNameCannotEmpty" classname="IDGeneratorTest" time="0.004"/>
+  <testcase name="testRandomness" classname="IDGeneratorTest" time="0.22"/>
+  <testcase name="testExecutionCannotEmpty" classname="IDGeneratorTest" time="0.001"/>
   <system-out><![CDATA[repetition: 1
 >passed!
 ]]></system-out>

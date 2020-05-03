@@ -1,7 +1,7 @@
 package id_generator;/*
 * class description: generates a task ID for a provider given their shop name and execution mode.
 *
-* how does it work: generate a hash value for the shop using SHA-1 hex hash and select first 10 digits
+* how does it work: generate a hash value for the task name using SHA-1 hex hash and select first 10 digits
 *                   return concatenated hash value and execution code e.g (ais13jf91i-2) -> constructID
 *
 * version: 0.1
@@ -9,20 +9,20 @@ package id_generator;/*
  * */
 
 public class IDGenerator {
-    private String shop_name;
+    private String task_action;
     private String execution_code;
 
-    public IDGenerator(String shop_name, String execution_code) {
-        if (shop_name.isEmpty()) throw new IllegalArgumentException("shop name cannot be empty");
+    public IDGenerator(String task_action, String execution_code) {
+        if (task_action.isEmpty()) throw new IllegalArgumentException("shop name cannot be empty");
         if (execution_code.isEmpty()) throw new IllegalArgumentException("execution code cannot be empty");
 
-        this.shop_name = shop_name.trim();
+        this.task_action = task_action.trim();
         this.execution_code = execution_code;
     }
 
-    private String getShopNameHash() {
-        HashFunc hashFunc = new HashFunc(shop_name);
-        return hashFunc.hashShopName();
+    private String getTaskActionHash() {
+        HashFunc hashFunc = new HashFunc(task_action);
+        return hashFunc.hashTaskAction();
     }
 
     private int getExecutionCodeInt() {
@@ -36,9 +36,9 @@ public class IDGenerator {
     *
     */
     public String constructID() {
-        String hashed_shop_name = getShopNameHash();
+        String hashed_task_action = getTaskActionHash();
         int hashed_execution_code = getExecutionCodeInt();
 
-        return hashed_shop_name + "-" + hashed_execution_code;
+        return hashed_task_action + "-" + hashed_execution_code;
     }
 }

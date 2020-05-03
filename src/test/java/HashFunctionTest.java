@@ -41,7 +41,7 @@ public class HashFunctionTest {
     @Test
     public void testShopNameReturnsCorrectValue() {
         HashFunc hashFunc = new HashFunc("move");
-        String shop_name_value = hashFunc.hashShopName();
+        String shop_name_value = hashFunc.hashTaskAction();
 
         assertNotEquals(shop_name_value, "");
     }
