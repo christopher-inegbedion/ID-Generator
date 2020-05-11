@@ -2,10 +2,10 @@ package id_generator;/*
 * class description: generates a task ID for a provider given their shop name and execution mode.
 *
 * how does it work: generate a hash value for the task name using SHA-1 hex hash and select first 10 digits
-*                   return concatenated hash value and execution code e.g (ais13jf91i-2) -> constructID
+*                   return concatenated hash value and execution code
 *
-* version: 0.1
-* author: Christopher Eromosele Inegbedion
+* version: 0.3
+* author: Christopher Inegbedion
  * */
 
 public class IDGenerator {

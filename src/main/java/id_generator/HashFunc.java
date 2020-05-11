@@ -1,26 +1,34 @@
-package id_generator;/*
+package id_generator;
+/*
 * description: create numerical representation from shop name or execution mode
 *
-* version: 0.1
-* author: Christopher Eromosele Inegbedion
+* version: 0.3
+* author: Christopher Inegbedion
 * */
 
+import enums.ExecutionEnums;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class HashFunc {
-    private String text;
+    private String task_action;
     private boolean isExecution = false;
 
-    public HashFunc(String text) {
+    /*
+    * description: called to hash a task action
+    * */
+    public HashFunc(String task_action) {
 
-        if (text.isEmpty()) throw new IllegalArgumentException("text parameter cannot be empty");
+        if (task_action.isEmpty()) throw new IllegalArgumentException("text parameter cannot be empty");
 
-        for (int i = 0; i < text.length(); i++) {
-            if (Character.isDigit(text.charAt(i))) throw new IllegalArgumentException("shop name parameter cannot have a digit");
+        for (int i = 0; i < task_action.length(); i++) {
+            if (Character.isDigit(task_action.charAt(i))) throw new IllegalArgumentException("shop name parameter cannot have a digit");
         }
-        this.text = text;
+        this.task_action = task_action;
     }
 
+    /*
+     * description: called to hash an execution code
+     * */
     public HashFunc(String execution, boolean isExecution) {
         if (execution.isEmpty()) throw new IllegalArgumentException("execution parameter cannot be empty");
 
@@ -31,12 +39,12 @@ public class HashFunc {
                 && !execution.equals("meet_up_c"))
             throw new IllegalArgumentException("unsupported execution passed. supported codes: delivery, meet_up_c, meet_up_p");
 
-        this.text = execution;
+        this.task_action = execution;
         this.isExecution = isExecution;
     }
 
     public ExecutionEnums getExecutionEnum() {
-        switch (text) {
+        switch (task_action) {
             case "delivery":
                 return ExecutionEnums.DELIVERY;
             case "meet_up_p":
@@ -65,7 +73,7 @@ public class HashFunc {
     * return: hashed shop name
     * */
     public String hashTaskAction() {
-        String hashedName = DigestUtils.sha1Hex(text);
+        String hashedName = DigestUtils.sha1Hex(task_action);
 
         return hashedName.substring(0, ProjectSettings.ID_LENGTH);
     }

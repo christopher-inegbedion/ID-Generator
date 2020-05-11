@@ -6,7 +6,7 @@ public class ProjectSettings {
 
     private ProjectSettings() {}
 
-    public class Test {
+    public static class Test {
 
         public static final int number_of_tests = 5;
         public static final int text_length = 6;

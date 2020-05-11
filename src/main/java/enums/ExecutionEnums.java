@@ -1,4 +1,4 @@
-package id_generator;
+package enums;
 
 public enum  ExecutionEnums {
     DELIVERY(1),
