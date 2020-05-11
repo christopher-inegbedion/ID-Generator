@@ -2,6 +2,7 @@
 Used to generate a random ID at a set length, using a SHA1 algorithm to generate a task ID from the task action and execution code
 
 ###Creating an ID
+
 An IDGenerator constructor takes in the task action and execution mode as parameters. There are 3 types of execution modes, namely:
 1. delivery
 2. meet_up_p
